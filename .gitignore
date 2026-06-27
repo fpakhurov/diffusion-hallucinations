@@ -1,0 +1,40 @@
+# ---- Python / env ----
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# ---- Large archives / generated ----
+bach_code.zip
+
+# ---- Datasets & heavy media (copyright; obtain separately) ----
+bach_code/data/
+bach_code/inputs/
+bach_code/outputs/
+bach_code/models/
+bach_code/ordpy_examples/data/
+bach_code/ordpy_examples/figs/
+bach_code/ordpy_examples/manuscript_figures/
+bach_code/datasets.ipynb
+papers/
+
+# ---- Large doc binaries (thesis history; not needed to build) ----
+docs/
+
+# ---- HuggingFace cache (lives in ~/.cache anyway) ----
+**/huggingface/
+
+# ---- LaTeX build artifacts ----
+*.aux
+*.log
+*.out
+*.toc
+*.blg
+*.bbl
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# ---- IDE / OS ----
+.idea/
+.DS_Store
