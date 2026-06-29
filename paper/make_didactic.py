@@ -69,3 +69,28 @@ def ordinal():
 if __name__ == "__main__":
     pipeline()
     ordinal()
+
+
+def taxonomy():
+    import matplotlib.pyplot as plt
+    fig, ax = plt.subplots(figsize=(10, 3.3)); ax.axis("off")
+    ax.set_xlim(0, 10); ax.set_ylim(0, 4)
+    rows = [("Синтетичность", "стат. отличие от реального", "видит", "#2C7A3F"),
+            ("Текстурный артефакт", "размытие, шум", "видит", "#2C7A3F"),
+            ("Дублирование", "повтор фрагмента", "только спец. метод", "#B8860B"),
+            ("Семантическая ошибка", "лишние конечности, текст", "не видит", "#C0392B")]
+    ax.text(2.0, 3.75, "Тип ошибки", fontsize=11, color="#102D69", ha="center", weight="bold")
+    ax.text(8.05, 3.75, "Глобальный CE", fontsize=11, color="#102D69", ha="center", weight="bold")
+    y = 3.0
+    for name, desc, verdict, col in rows:
+        ax.add_patch(plt.Rectangle((0.3, y - 0.35), 5.6, 0.72, fc="#EAF0FB", ec="#102D69", lw=1.3))
+        ax.text(0.5, y + 0.08, name, fontsize=12, color="#102D69", va="center", weight="bold")
+        ax.text(0.5, y - 0.18, desc, fontsize=9, color="#555", va="center")
+        ax.add_patch(plt.Rectangle((6.3, y - 0.35), 3.4, 0.72, fc=col, ec="none", alpha=0.16))
+        ax.text(8.0, y, verdict, fontsize=11.5, color=col, ha="center", va="center", weight="bold")
+        y -= 0.85
+    fig.savefig(OUT / "fig_taxonomy.png", bbox_inches="tight"); print("fig_taxonomy.png")
+
+
+if __name__ == "__main__":
+    taxonomy()
